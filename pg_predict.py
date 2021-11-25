@@ -14,9 +14,16 @@ le_country = data['le_country']
 le_education = data['le_education']
 
 def show_pg_predict():  # sourcery skip
-    st.title("Software Developer Prediction")
+    st.title("Predict Developer's Salary")
 
-    st.write("""### We need some information to predict the salary""")
+    st.write("""### Information needed to predict the salary""")
+
+    education = (
+        "Less than a Bachelors",
+        "Bachelor's degree",
+        "Master's degree",
+        "Post graduate"
+    )
 
     countries = (
         "United States",
@@ -35,19 +42,13 @@ def show_pg_predict():  # sourcery skip
         "Sweden"
     )
 
-    education = (
-        "Less than a Bachelors",
-        "Bachelor's degree",
-        "Master's degree",
-        "Post graduate"
-    )
 
-    country = st.selectbox("Country", countries)
     education = st.selectbox("Education Level", education)
+    country = st.selectbox("Country", countries)
 
-    experience = st.slider("Years of Experience", 0, 50, 3)
+    experience = st.slider("Experience Range(Years)", 0, 50, 3)
 
-    ok = st.button("Calculate Salary")
+    ok = st.button("Salary Calculation")
     if ok:
         person_info = np.array([[country, education, experience]])
         person_info[:, 0] = le_country.transform(person_info[:, 0])
@@ -55,4 +56,4 @@ def show_pg_predict():  # sourcery skip
         person_info = person_info.astype(float)
         
         salary = regressor.predict(person_info)
-        st.subheader(f"The estimated salary is ${salary[0]:.2f}")
+        st.subheader(f"Salary Estimated  ${salary[0]:.2f}")
