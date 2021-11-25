@@ -53,8 +53,8 @@ def load_data():
 df = load_data()
 
 def show_pg_explore():
-    st.title("Explore Software Engineer Salaries")
-    st.write("""### Stack Overflow Deeloper Survey 2020""")
+    st.title("Software Developers' Salaries")
+    st.write("""###Source: Stack Overflow 2020 Survey""")
 
     data = df['Country'].value_counts()
 
@@ -63,15 +63,17 @@ def show_pg_explore():
     ax1.axis("equal")  # Equal aspect ratio ensures that pie is drawn as a circle
 
     # Pie Chart
-    st.write("""#### Number of Data from different countries""")
+    st.write("""#### Some countries' Data""")
+
     st.pyplot(fig1)
 
     # Bar Chart
-    st.write("""#### Mean Salary Based On Country""")
+    st.write("""#### Average Salary Based On Country""")
+
     data = df.groupby(["Country"])["Salary"].mean().sort_values(ascending=True)
     st.bar_chart(data)
 
     # Line Chart
-    st.write("""#### Mean Salary Based On Experience""")
+    st.write("""#### Average Salary Based On Experience""")
     data = df.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)
     st.line_chart(data)
