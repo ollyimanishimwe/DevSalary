@@ -12,7 +12,7 @@ With the location, degree & years of experience fetched from the [StackOverflow 
 - Predict the Dev Salary
 - Display Over all global Dev salary 
 
-## How it Built
+## How it's Built
 **back end:**
 - Python
 - Scikit-learn
