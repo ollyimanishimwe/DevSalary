@@ -54,7 +54,7 @@ df = load_data()
 
 def show_pg_explore():
     st.title("Software Developers' Salaries")
-    st.write("""###Source: Stack Overflow 2020 Survey""")
+    st.write("""### Source: Stack Overflow 2020 Survey""")
 
     data = df['Country'].value_counts()
 
