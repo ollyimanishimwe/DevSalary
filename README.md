@@ -1,5 +1,6 @@
 # DevSalary
 
+
 ## What is DevSalary
 This Project is designed to help software developers or others non tech people who want to analyze and know more about software Developer's salary depending on their location, degree & years of experience.
 
